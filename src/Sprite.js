@@ -1,19 +1,19 @@
 function Sprite(x, y, width, height, path) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.image = new Image();
-    this.path = path;
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
+  this.image = new Image();
+  this.path = path;
 
-    this.draw = function(xCanvas, yCanvas) {
-        this.image.src = this.path;
-        context.drawImage(this.image, this.x, this.y, this.width, this.height, xCanvas, yCanvas, this.width, this.height);
-    }
+  this.draw = function(xCanvas, yCanvas) {
+    this.image.src = this.path;
+    context.drawImage(this.image, this.x, this.y, this.width, this.height, xCanvas, yCanvas, this.width, this.height);
+  }
 }
 
 var background = new Sprite(0, 0, 600, 550, "src/sprites/background.png"), chicken = [], collider = []
-    sand = new Sprite(0, 0, 128, 128, "src/sprites/ground.png");
+          sand = new Sprite(0, 0, 128, 128, "src/sprites/ground.png");
 
 collider[0] = new Sprite(0, 0, 108, 111, "src/sprites/cactus.png");
 collider[1] = new Sprite(0, 0, 70, 45, "src/sprites/cactus2.png");
