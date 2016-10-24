@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Run, Chicken, Run!</title>
+    <script src="src/Sprite.js"></script>
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+        canvas {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+            box-shadow: 2px 2px 10px #616161;
+        }
+    </style>
+  </head>
+  <body>
+  <script>
+      var canvas, context, WIDTH, HEIGHT, maxJump = 3, speed = 6,
+      currentState, rank, img,
+      states = {
+        start: 0,
+        playing: 1,
+        lost: 2
+      },
+      sounds = {
+          music: new Audio("src/sounds/music.mp3"),
+          score: new Audio("src/sounds/score.wav"),
+          jump: new Audio("src/sounds/jump.wav"),
+          collision: new Audio("src/sounds/collision.mp3"),
+          fall: new Audio("src/sounds/fall.wav"),
+          scream: new Audio("src/sounds/chicken-scream.mp3"),
+          start: new Audio("src/sounds/start.mp3")
+      },
+      ground = {
+          x: 0,
+          y: 500,
+          height: 50,
+
+          update: function(){
+              this.x -= speed;
+              if (this.x <= -128) {
+                  this.x = 0;
+              }
+          },
+
+          draw: function() {
+              for (var count = 0, size = 5; count <= size; count++) {
+                  sand.draw(this.x + sand.width * count, this.y);
+              }
+          }
+      },
+      block = {
+          x: 50,
+          y: 0,
+          height: chicken[0].height,
+          width: chicken[0].width,
+          gravity: 1.6,
+          speed: 0,
+          jumpForce: 23.6,
+          numberJumps: 0,
+          score: 0,
+          rotation: 0,
+          anim: 0,
+          count: 0,
+          timeChange: 0,
+
+          changeImage: function() {
+            if (this.count <= 17) {
+                if (this.count > 0) {
+                    this.anim = 0;
+                } else {
+                    this.anim = 1;
+                }
+                this.count++;
+            }
+            else {
+                this.anim = 0;
+                this.count = 1;
+            }
+            this.timeChange = 4;
+          },
+
+          collided: function() {
+              this.count = 18;
+              this.anim = 2;
+          },
+
+          update: function() {
+
+              this.speed += this.gravity;
+              this.y += this.speed;
+              this.rotation = Math.random() / 90 * speed;
+
+              if (this.y > ground.y - this.height && currentState != states.lost) {
+                  this.y = ground.y - this.height;
+                  this.numberJumps = 0;
+                  this.speed = 0;
+                  this.anim = 1;
+              }
+              if (this.timeChange == 0) {
+                  this.changeImage();
+              }
+              else {
+                  this.timeChange--;
+              }
+          },
+
+          jump: function() {
+              if(this.numberJumps < maxJump){
+                  this.speed = -this.jumpForce;
+                  this.numberJumps++;
+              }
+          },
+
+          reset: function() {
+              this.speed = 0;
+              this.y = 0;
+              this.anim = 0;
+              this.timeChange = 0;
+              if (this.score > rank) {
+                  localStorage.setItem("rank", this.score);
+                  rank = this.score;
+              }
+              this.score = 0;
+          },
+
+          draw: function() {
+              context.save();
+              context.translate(this.x + this.width / 2, this.y + this.height / 2);
+              context.rotate(this.rotation);
+              chicken[this.anim].draw(-this.width /2, -this.height /2);
+              context.restore();
+          }
+      },
+
+      obstacles = {
+          _obs: [],
+          widths: [108, 70, 86, 124, 131, 145],
+          heights: [111, 45, 96, 73, 74, 88],
+          timeToInsert: 0,
+
+          insert: function() {
+              this._obs.push({
+                  x: WIDTH,
+                  number: Math.floor(6 * Math.random()),
+                  width: this.widths[this.number],
+                  height: this.heights[this.number]
+              });
+              this.timeToInsert = 50 + Math.floor(91 * Math.random());
+          },
+
+          update: function() {
+              if (this.timeToInsert == 0)
+                  this.insert();
+              else
+                  this.timeToInsert--;
+              for (var i = 0, size = this._obs.length; i < size; i++) {
+                  var obs = this._obs[i];
+
+                  obs.x -= speed;
+
+                  // Collision
+                  if (block.x < obs.x + this.widths[obs.number] && block.x + block.width >=
+                  obs.x && block.y + block.height >= ground.y - this.heights[obs.number]) {
+                      currentState = states.lost;
+                      sounds.scream.play();
+                      sounds.collision.play();
+                      sounds.fall.play();
+                      block.collided();
+                  }
+                  else if (obs.x == 0) {
+                      sounds.score.play();
+                      block.score++;
+                  }
+                  else if (obs.x <= -obs.width) {
+                      this._obs.splice(i, 1);
+                      size--;
+                      i--;
+                  }
+              }
+          },
+
+          clean: function() {
+              this._obs = [];
+          },
+
+          draw: function() {
+              for (var i = 0, size = this._obs.length; i < size; i++) {
+                  var obs = this._obs[i];
+                  collider[obs.number].draw(obs.x, ground.y - this.heights[obs.number]);
+              }
+          }
+      };
+
+      function click(event) {
+          if (currentState == states.start) {
+              currentState = states.playing;
+              sounds.start.play();
+          }
+          else if (currentState == states.lost && block.y >= 2 * HEIGHT) {
+              currentState = states.start;
+              obstacles.clean();
+              block.reset();
+          }
+      }
+
+      function keyUp(event) {
+          if (event.keyCode == 38 || event.keyCode == 87 && currentState == states.playing) {
+              block.jump();
+              sounds.jump.play();
+          }
+          click();
+      }
+
+      function touch(event) {
+          block.jump();
+          sounds.jump.play();
+          click();
+      }
+
+      function main() {
+          HEIGHT = window.innerHeight;
+          WIDTH = window.innerWidth;
+
+          if (WIDTH >= 600) {
+              WIDTH = 600;
+              HEIGHT = 550;
+          }
+
+          canvas = document.createElement("canvas");
+          canvas.width = WIDTH;
+          canvas.height = HEIGHT;
+          canvas.style.border = "1px solid #000";
+
+          context = canvas.getContext("2d");
+          document.body.appendChild(canvas);
+          document.addEventListener("mousedown", click);
+          document.addEventListener("keyup", keyUp);
+          document.addEventListener("touchstart", touch, false);
+
+          currentState = states.start;
+          rank = localStorage.getItem("rank");
+
+          if (rank == null) {
+              rank = 0;
+          }
+          sounds.music.loop = true;
+          sounds.music.play();
+          run();
+      }
+
+      function run() {
+          update();
+          draw();
+          window.requestAnimationFrame(run);
+      }
+
+      function update() {
+          if (currentState == states.playing) {
+              obstacles.update();
+          }
+          ground.update();
+          block.update();
+      }
+
+      function draw() {
+          //background
+          background.draw(0, 0);
+
+          //score
+          context.fillStyle = "#242424";
+          context.font = "50px Arial";
+
+          if (currentState == states.playing)
+            context.fillText(block.score, 15, 48);
+
+          if (currentState == states.start) {
+              context.fillText("Play", WIDTH / 2 - 50, HEIGHT / 2 - 70);
+          }
+          else if (currentState == states.lost) {
+              context.fillStyle = "#e74c3c";
+              context.fillRect(WIDTH / 2 - 50, HEIGHT / 2 - 80, 100, 100);
+              context.save();
+              context.translate(WIDTH / 2, HEIGHT / 2 - 30);
+              context.fillStyle = "#fff";
+
+              if (block.score > rank) {
+                  context.fillText("New Record!", -145, -65);
+              }
+              else if (rank < 10) {
+                  context.fillText("Best score " + rank, -135, -65);
+              }
+              else if (rank >= 10 && rank < 100) {
+                  context.fillText("Best score " + rank, -150, -65);
+              } else {
+                  context.fillText("Best score " + rank, -165, -65);
+              }
+
+              if (block.score < 10) {
+                  context.fillText(block.score, -13, 19);
+              }
+              else if (block.score >=10 && block.score < 100) {
+                  context.fillText(block.score, -26, 19);
+              }
+                  else {
+                  context.fillText(block.score, -39, 19);
+              }
+              context.restore();
+          }
+          else if (currentState == states.playing) {
+
+              obstacles.draw();
+          }
+          ground.draw();
+          block.draw();
+      }
+      main();
+  </script>
+  </body>
+</html>
