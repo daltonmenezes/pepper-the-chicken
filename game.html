@@ -22,7 +22,7 @@
 
   <body>
     <script>
-      var canvas, context, WIDTH, HEIGHT, maxJump = 3, speed = 6,
+      let canvas, context, WIDTH, HEIGHT, maxJump = 3, speed = 6,
       currentState, rank, img,
 
       states = {
@@ -54,7 +54,7 @@
         },
 
         draw: function() {
-          for (var count = 0, size = 5; count <= size; count++) {
+          for (let count = 0, size = 5; count <= size; count++) {
               sand.draw(this.x + sand.width * count, this.y);
           }
         }
@@ -168,8 +168,8 @@
           else
               this.timeToInsert--;
 
-              for (var i = 0, size = this._obs.length; i < size; i++) {
-                  var obs = this._obs[i];
+              for (let i = 0, size = this._obs.length; i < size; i++) {
+                  let obs = this._obs[i];
                   obs.x -= speed;
 
                   // Collision
@@ -198,8 +198,8 @@
         },
 
         draw: function() {
-          for (var i = 0, size = this._obs.length; i < size; i++) {
-              var obs = this._obs[i];
+          for (let i = 0, size = this._obs.length; i < size; i++) {
+              let obs = this._obs[i];
               collider[obs.number].draw(obs.x, ground.y - this.heights[obs.number]);
           }
         }
