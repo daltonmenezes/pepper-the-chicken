@@ -267,15 +267,8 @@
         draw();
         window.requestAnimationFrame(run);
       }
-
-      function update() {
-        if (currentState == states.playing) {
-            obstacles.update();
-        }
-        ground.update();
-        block.update();
-      }
   </script>
+  <script src="src/Update.js"></script>
   <script src="src/Draw.js"></script>
   <script>
     main();
