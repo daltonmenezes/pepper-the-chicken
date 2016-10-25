@@ -1,4 +1,4 @@
-ground = {
+let ground = {
   x: 0,
   y: 500,
   height: 50,
