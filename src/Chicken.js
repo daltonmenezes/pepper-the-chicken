@@ -1,4 +1,4 @@
-block = {
+let block = {
   x: 50,
   y: 0,
   height: chicken[0].height,
