@@ -1,6 +1,6 @@
 function draw() {
   //background
-  background.draw(0, 0);
+  background.draw(context, 0, 0);
 
   //score
   context.fillStyle = "#242424";

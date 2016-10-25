@@ -12,7 +12,7 @@ let ground = {
 
   draw: function() {
     for (let count = 0, size = 5; count <= size; count++) {
-        sand.draw(this.x + sand.width * count, this.y);
+        sand.draw(context, this.x + sand.width * count, this.y);
     }
   }
 }

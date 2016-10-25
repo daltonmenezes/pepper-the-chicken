@@ -52,7 +52,7 @@ let obstacles = {
   draw: function() {
     for (let i = 0, size = this._obs.length; i < size; i++) {
         let obs = this._obs[i];
-        collider[obs.number].draw(obs.x, ground.y - this.heights[obs.number]);
+        collider[obs.number].draw(context, obs.x, ground.y - this.heights[obs.number]);
     }
   }
 }

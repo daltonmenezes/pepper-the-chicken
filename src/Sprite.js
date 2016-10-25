@@ -6,7 +6,7 @@ function Sprite(x, y, width, height, path) {
   this.image = new Image();
   this.path = path;
 
-  this.draw = function(xCanvas, yCanvas) {
+  this.draw = function(context, xCanvas, yCanvas) {
     this.image.src = this.path;
     context.drawImage(this.image, this.x, this.y, this.width, this.height, xCanvas, yCanvas, this.width, this.height);
   }
