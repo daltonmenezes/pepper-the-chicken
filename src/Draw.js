@@ -45,6 +45,7 @@ function draw() {
   else if (currentState == states.playing) {
       obstacles.draw();
   }
-  ground.draw();
+  ground.clean();
+  ground.draw(groundContext, 0, 500);
   block.draw();
 }
