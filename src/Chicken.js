@@ -38,7 +38,6 @@ let block = {
   update: function() {
     this.speed += this.gravity;
     this.y += this.speed;
-    this.rotation = Math.random() / 90 * speed;
 
     if (this.y > ground.y - this.height && currentState != states.lost) {
         this.y = ground.y - this.height;
