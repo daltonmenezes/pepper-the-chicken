@@ -1,4 +1,4 @@
-sounds = {
+let sounds = {
   music: new Audio("src/sounds/music.mp3"),
   score: new Audio("src/sounds/score.wav"),
   jump: new Audio("src/sounds/jump.wav"),
