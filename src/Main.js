@@ -10,8 +10,7 @@ function main() {
   canvas = document.createElement("canvas");
   canvas.width = WIDTH;
   canvas.height = HEIGHT;
-  canvas.style.border = "1px solid #000";
-
+  
   context = canvas.getContext("2d");
   document.body.appendChild(canvas);
   document.addEventListener("mousedown", click);
