@@ -10,9 +10,14 @@ let ground = {
     }
   },
 
+  clean: function() {
+    context.clearRect(this.x, this.y, WIDTH, HEIGHT);
+    groundContext.clearRect(this.x, this.y, WIDTH, HEIGHT);
+  },
+
   draw: function() {
     for (let count = 0, size = 5; count <= size; count++) {
-        sand.draw(context, this.x + sand.width * count, this.y);
+        sand.draw(groundContext, this.x + sand.width * count, this.y);
     }
   }
 }
