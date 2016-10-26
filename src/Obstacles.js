@@ -23,7 +23,6 @@ let obstacles = {
         for (let i = 0, size = this._obs.length; i < size; i++) {
             let obs = this._obs[i];
             obs.x -= speed;
-
             // Collision
             if (chicken.x < obs.x + this.widths[obs.number] && chicken.x + chicken.width >=
             obs.x && chicken.y + chicken.height >= ground.y - this.heights[obs.number]) {
@@ -33,14 +32,15 @@ let obstacles = {
                 sounds.fall.play();
                 chicken.collided();
             }
-            else if (obs.x == 0) {
-                sounds.score.play();
-                chicken.score++;
-            }
-            else if (obs.x <= -obs.width) {
+            else if (obs.x <= -obs.x + -250) {
                 this._obs.splice(i, 1);
                 size--;
                 i--;
+            }
+            // Score increment
+            if (obs.x == 0) {
+                sounds.score.play();
+                chicken.score++;
             }
         }
   },
