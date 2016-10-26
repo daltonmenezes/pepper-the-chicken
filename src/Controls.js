@@ -3,13 +3,15 @@ function jump(event) {
       currentState = states.playing;
       sounds.start.play();
   }
+  else if (currentState == states.playing) {
+      block.jump();
+      sounds.jump.play();
+  }
   else if (currentState == states.lost && block.y >= 2 * HEIGHT) {
       currentState = states.start;
       obstacles.clean();
       block.reset();
   }
-  block.jump();
-  sounds.jump.play();
 }
 
 function keyUp(event) {
