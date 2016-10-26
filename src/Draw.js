@@ -10,13 +10,13 @@ function draw() {
       context.fillText(block.score, 15, 48);
 
   if (currentState == states.start) {
-      context.fillText("Play", WIDTH / 2 - 50, HEIGHT / 2 - 70);
+      context.fillText("Play", Math.floor(WIDTH / 2 - 50), Math.floor(HEIGHT / 2 - 70));
   }
   else if (currentState == states.lost) {
       context.fillStyle = "#e74c3c";
-      context.fillRect(WIDTH / 2 - 50, HEIGHT / 2 - 80, 100, 100);
+      context.fillRect(Math.floor(WIDTH / 2 - 50), Math.floor(HEIGHT / 2 - 80), 100, 100);
       context.save();
-      context.translate(WIDTH / 2, HEIGHT / 2 - 30);
+      context.translate(Math.floor(WIDTH / 2), Math.floor(HEIGHT / 2 - 30));
       context.fillStyle = "#fff";
 
       if (block.score > rank) {
