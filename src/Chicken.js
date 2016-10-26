@@ -8,7 +8,6 @@ let block = {
   jumpForce: 23.6,
   numberJumps: 0,
   score: 0,
-  rotation: 0,
   anim: 0,
   count: 0,
   timeChange: 0,
