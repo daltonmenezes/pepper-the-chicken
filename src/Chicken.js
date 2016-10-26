@@ -1,8 +1,8 @@
-let block = {
+let chicken = {
   x: 50,
   y: 0,
-  height: chicken[0].height,
-  width: chicken[0].width,
+  height: chicken_sprite[0].height,
+  width: chicken_sprite[0].width,
   gravity: 1.6,
   speed: 0,
   jumpForce: 23.6,
@@ -76,7 +76,7 @@ let block = {
   draw: function() {
     context.save();
     context.translate(Math.floor(this.x + this.width / 2), Math.floor(this.y + this.height / 2));
-    chicken[this.anim].draw(context, -Math.floor(this.width / 2), -Math.floor(this.height / 2));
+    chicken_sprite[this.anim].draw(context, -Math.floor(this.width / 2), -Math.floor(this.height / 2));
     context.restore();
   }
 }
