@@ -46,6 +46,6 @@ function draw() {
       obstacles.draw();
   }
   ground.clean();
-  ground.draw(groundContext, 0, 500);
+  ground.draw();
   block.draw();
 }
