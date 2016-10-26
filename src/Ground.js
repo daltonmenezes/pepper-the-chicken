@@ -6,7 +6,7 @@ let ground = {
   update: function() {
     this.x -= speed;
     if (this.x <= -600) {
-        this.x = 0;
+        this.x = -1;
     }
   },
 
