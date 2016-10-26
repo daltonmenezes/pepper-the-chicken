@@ -7,7 +7,7 @@ function draw() {
   context.font = "50px Arial";
 
   if (currentState == states.playing)
-      context.fillText(block.score, 15, 48);
+      context.fillText(chicken.score, 15, 48);
 
   if (currentState == states.start) {
       context.fillText("Play", Math.floor(WIDTH / 2 - 50), Math.floor(HEIGHT / 2 - 70));
@@ -19,7 +19,7 @@ function draw() {
       context.translate(Math.floor(WIDTH / 2), Math.floor(HEIGHT / 2 - 30));
       context.fillStyle = "#fff";
 
-      if (block.score > rank) {
+      if (chicken.score > rank) {
           context.fillText("New Record!", -145, -65);
       }
       else if (rank < 10) {
@@ -31,14 +31,14 @@ function draw() {
           context.fillText("Best score " + rank, -165, -65);
       }
 
-      if (block.score < 10) {
-          context.fillText(block.score, -13, 19);
+      if (chicken.score < 10) {
+          context.fillText(chicken.score, -13, 19);
       }
-      else if (block.score >=10 && block.score < 100) {
-          context.fillText(block.score, -26, 19);
+      else if (chicken.score >=10 && chicken.score < 100) {
+          context.fillText(chicken.score, -26, 19);
       }
       else {
-          context.fillText(block.score, -39, 19);
+          context.fillText(chicken.score, -39, 19);
       }
       context.restore();
   }
@@ -47,5 +47,5 @@ function draw() {
   }
   ground.clean();
   ground.draw();
-  block.draw();
+  chicken.draw();
 }

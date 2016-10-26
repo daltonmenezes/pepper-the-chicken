@@ -3,5 +3,5 @@ function update() {
       obstacles.update();
   }
   ground.update();
-  block.update();
+  chicken.update();
 }

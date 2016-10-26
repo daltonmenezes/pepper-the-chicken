@@ -4,13 +4,13 @@ function jump(event) {
       sounds.start.play();
   }
   else if (currentState == states.playing) {
-      block.jump();
+      chicken.jump();
       sounds.jump.play();
   }
-  else if (currentState == states.lost && block.y >= 2 * HEIGHT) {
+  else if (currentState == states.lost && chicken.y >= 2 * HEIGHT) {
       currentState = states.start;
       obstacles.clean();
-      block.reset();
+      chicken.reset();
   }
 }
 

@@ -25,17 +25,17 @@ let obstacles = {
             obs.x -= speed;
 
             // Collision
-            if (block.x < obs.x + this.widths[obs.number] && block.x + block.width >=
-            obs.x && block.y + block.height >= ground.y - this.heights[obs.number]) {
+            if (chicken.x < obs.x + this.widths[obs.number] && chicken.x + chicken.width >=
+            obs.x && chicken.y + chicken.height >= ground.y - this.heights[obs.number]) {
                 currentState = states.lost;
                 sounds.scream.play();
                 sounds.collision.play();
                 sounds.fall.play();
-                block.collided();
+                chicken.collided();
             }
             else if (obs.x == 0) {
                 sounds.score.play();
-                block.score++;
+                chicken.score++;
             }
             else if (obs.x <= -obs.width) {
                 this._obs.splice(i, 1);
