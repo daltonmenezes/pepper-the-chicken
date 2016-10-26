@@ -77,7 +77,6 @@ let block = {
   draw: function() {
     context.save();
     context.translate(this.x + this.width / 2, this.y + this.height / 2);
-    context.rotate(this.rotation);
     chicken[this.anim].draw(context, -this.width /2, -this.height /2);
     context.restore();
   }
