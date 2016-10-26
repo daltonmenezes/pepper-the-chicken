@@ -1,5 +1,5 @@
 function run() {
-  window.requestAnimationFrame(run);
   update();
   draw();
+  window.requestAnimationFrame(run);
 }
