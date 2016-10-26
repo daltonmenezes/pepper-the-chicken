@@ -1,5 +1,5 @@
 function draw() {
-  background.draw(context, 0, 0);
+  background.draw();
 
   if (currentState == states.start) {
       speed = initial_speed;

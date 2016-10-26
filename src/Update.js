@@ -3,6 +3,7 @@ function update() {
       obstacles.update();
       difficulty();
   }
+  background.update();
   ground.update();
   chicken.update();
 }
