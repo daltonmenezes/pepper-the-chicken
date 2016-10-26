@@ -11,7 +11,7 @@ function click(event) {
 }
 
 function keyUp(event) {
-  if (event.keyCode == 38 || event.keyCode == 87 && currentState == states.playing) {
+  if (event.keyCode == 38 || event.keyCode == 32 || event.keyCode == 87 && currentState == states.playing) {
       block.jump();
       sounds.jump.play();
   }
