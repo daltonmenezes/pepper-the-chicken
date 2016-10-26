@@ -1,5 +1,5 @@
 let canvas, context, WIDTH = window.innerWidth, HEIGHT = window.innerHeight,
-maxJump = 3, speed = 8, currentState, rank, img,
+maxJump = 3, initial_speed = 8, speed = initial_speed, currentState, rank, img,
 
 states = {
   start: 0,
