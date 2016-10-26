@@ -33,14 +33,13 @@ let obstacles = {
                 chicken.collided();
             }
             else if (obs.x <= -obs.x + -250) {
+                // Score increment
+                sounds.score.play();
+                chicken.score++;
+                // Remove obstacle from canvas
                 this._obs.splice(i, 1);
                 size--;
                 i--;
-            }
-            // Score increment
-            if (obs.x == 0) {
-                sounds.score.play();
-                chicken.score++;
             }
         }
   },
