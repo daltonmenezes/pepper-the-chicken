@@ -75,8 +75,8 @@ let block = {
 
   draw: function() {
     context.save();
-    context.translate(this.x + this.width / 2, this.y + this.height / 2);
-    chicken[this.anim].draw(context, -this.width /2, -this.height /2);
+    context.translate(Math.floor(this.x + this.width / 2), Math.floor(this.y + this.height / 2));
+    chicken[this.anim].draw(context, -Math.floor(this.width / 2), -Math.floor(this.height / 2));
     context.restore();
   }
 }
