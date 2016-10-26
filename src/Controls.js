@@ -1,4 +1,4 @@
-function click(event) {
+function jump(event) {
   if (currentState == states.start) {
       currentState = states.playing;
       sounds.start.play();
@@ -8,18 +8,20 @@ function click(event) {
       obstacles.clean();
       block.reset();
   }
+  block.jump();
+  sounds.jump.play();
+}
+
+function click(event) {
+  jump();
 }
 
 function keyUp(event) {
-  if (event.keyCode == 38 || event.keyCode == 32 || event.keyCode == 87 && currentState == states.playing) {
-      block.jump();
-      sounds.jump.play();
+  if (event.keyCode == 38 || event.keyCode == 32 || event.keyCode == 87) {
+      jump();
   }
-  click();
 }
 
 function touch(event) {
-  block.jump();
-  sounds.jump.play();
-  click();
+  jump();
 }
