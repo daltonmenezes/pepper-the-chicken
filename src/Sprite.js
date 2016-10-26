@@ -12,7 +12,7 @@ function Sprite(x, y, width, height, path) {
   }
 }
 
-let background = new Sprite(0, 0, 600, 550, "src/sprites/background.png"), chicken_sprite = [], collider = []
+let background_sprite = new Sprite(0, 0, 667, 550, "src/sprites/background.png"), chicken_sprite = [], collider = []
           sand = new Sprite(0, 0, 600, 128, "src/sprites/ground.png");
 
 collider[0] = new Sprite(0, 0, 108, 111, "src/sprites/cactus.png");
