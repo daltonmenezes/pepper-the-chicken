@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pepper - The Chicken</title>
+
+    <style>
+    *{margin: 0; padding: 0;}
+    body {
+      background-color: white;
+    }
+    #background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('src/sprites/background.png');
+      background-size:  contain;
+      filter: blur(20px);
+      opacity: 0.3;
+      z-index: -1;
+    }
+    #game {
+      display: flex;
+      width: 100%;
+      height: 600px;
+      flex-flow: column;
+      align-items: center;
+    }
+    iframe {
+      width: 630px;
+      height: 590px;
+      border: none;
+    }
+    #footer {
+      display: flex;
+      width: 100%;
+      height: 50px;
+      flex-flow: column;
+      align-items: center;
+      cursor: default;
+    }
+    #footer a {
+      text-decoration: none;
+      color: #262626;
+      transition: color 0.3s;
+    }
+    #footer a:hover {
+      color: #ff9900;
+    }
+    </style>
+  </head>
+  <body>
+    <section id="background"></section>
+    <section id="game">
+      <iframe src="game.html"></iframe>
+    </section>
+
+    <section id="footer">
+     <span>Developed by <a href="http://daltonmenezes.github.io/" target="_blank">Dalton Menezes.</a></span>
+   </section>
+  </body>
+</html>
