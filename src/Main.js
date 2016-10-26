@@ -1,7 +1,4 @@
 function main() {
-  HEIGHT = window.innerHeight;
-  WIDTH = window.innerWidth;
-
   if (WIDTH >= 600) {
       WIDTH = 600;
       HEIGHT = 550;
