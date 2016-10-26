@@ -12,14 +12,14 @@ function jump(event) {
   sounds.jump.play();
 }
 
-function click(event) {
-  jump();
-}
-
 function keyUp(event) {
   if (event.keyCode == 38 || event.keyCode == 32 || event.keyCode == 87) {
       jump();
   }
+}
+
+function click(event) {
+  jump();
 }
 
 function touch(event) {
