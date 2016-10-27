@@ -5,5 +5,6 @@ let sounds = {
   collision: new Audio("src/sounds/collision.mp3"),
   fall: new Audio("src/sounds/fall.wav"),
   scream: new Audio("src/sounds/chicken-scream.mp3"),
+  difficulty: new Audio("src/sounds/oh-oh.mp3"),
   start: new Audio("src/sounds/start.mp3")
 }
