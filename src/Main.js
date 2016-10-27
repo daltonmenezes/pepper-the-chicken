@@ -30,7 +30,6 @@ function main() {
   if (rank == null) {
       rank = 0;
   }
-  sounds.music.loop = true;
-  sounds.music.play();
+  sounds.opening(true);
   run();
 }
