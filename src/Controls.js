@@ -2,6 +2,8 @@ function jump(event) {
   if (currentState == states.start) {
       currentState = states.playing;
       sounds.start.play();
+      sounds.opening(false);
+      sounds.music.play();
   }
   else if (currentState == states.playing) {
       chicken.jump();
