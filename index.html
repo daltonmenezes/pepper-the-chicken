@@ -4,59 +4,7 @@
     <meta charset="utf-8">
     <title>Pepper - The Chicken</title>
 
-    <style>
-    *{margin: 0; padding: 0;}
-
-    body {
-      color: #3f3f3f;
-      background-color: white;
-    }
-
-    #background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: url('src/sprites/background.png');
-      background-size:  contain;
-      filter: blur(20px);
-      opacity: 0.3;
-      z-index: -1;
-    }
-    #game {
-      display: flex;
-      width: 100%;
-      height: 600px;
-      flex-flow: column;
-      align-items: center;
-    }
-    iframe {
-      width: 630px;
-      height: 590px;
-      border: none;
-    }
-    #footer {
-      display: flex;
-      width: 100%;
-      height: 50px;
-      flex-flow: column;
-      align-items: center;
-      cursor: default;
-    }
-    #footer a {
-      text-decoration: none;
-      color: #262626;
-      transition: color 0.3s;
-    }
-    #footer a:hover {
-      color: #ff9900;
-    }
-
-    .github-corner svg {
-      fill:#3f3f3f; color:#fff; position: absolute; top: 0; border: 0; right: 0;
-    }
-
-    .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-    </style>
+    <link rel="stylesheet" type="text/css" href="src/css/index.css"/>
   </head>
   <body>
     <section id="background"></section>
