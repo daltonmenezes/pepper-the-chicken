@@ -13,7 +13,7 @@ function drawScore() {
       context.fillStyle = "#fff";
 
       if (chicken.score > rank) {
-          context.fillText("New Record!", -145, -65);
+          context.fillText("New record!", -145, -65);
       }
       else if (rank < 10) {
           context.fillText("Best score " + rank, -135, -65);
