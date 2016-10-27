@@ -31,5 +31,6 @@ function main() {
       rank = 0;
   }
   sounds.opening(true);
+  sounds.theme();
   run();
 }
