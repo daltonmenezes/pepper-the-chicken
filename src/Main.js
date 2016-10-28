@@ -21,7 +21,7 @@ function main() {
   document.body.appendChild(canvas2);
 
   document.addEventListener("mousedown", click);
-  document.addEventListener("keyup", keyUp);
+  document.addEventListener("keydown", keyDown);
   document.addEventListener("touchstart", touch, false);
 
   currentState = states.start;
