@@ -75,7 +75,7 @@ let chicken = {
 
   draw: function() {
     context.save();
-    context.translate(Math.floor(this.x + this.width / 2), Math.floor(this.y + this.height / 2));
+    context.translate(Math.floor(this.x + this.width / 2), Math.floor(this.y + this.height / 4));
     chicken_sprite[this.anim].draw(context, -Math.floor(this.width / 2), -Math.floor(this.height / 2));
     context.restore();
   }
