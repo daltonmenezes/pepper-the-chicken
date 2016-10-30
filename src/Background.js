@@ -9,9 +9,13 @@ let background = {
     }
   },
 
+  clean: function() {
+    backgroundContext.clearRect(this.x, this.y, WIDTH, HEIGHT);
+  },
+
   draw: function() {
     for (let count = 0, size = 5; count <= size; count++) {
-        background_sprite.draw(context, this.x + background_sprite.width * count, this.y);
+        background_sprite.draw(backgroundContext, this.x + background_sprite.width * count, this.y);
     }
   }
 }
