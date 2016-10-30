@@ -11,7 +11,7 @@ let ground = {
   },
 
   clean: function() {
-    context.clearRect(this.x, this.y, WIDTH, HEIGHT);
+    groundContext.clearRect(this.x, this.y, WIDTH, HEIGHT);
   },
 
   draw: function() {
