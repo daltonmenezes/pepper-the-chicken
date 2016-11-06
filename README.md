@@ -9,9 +9,11 @@ A free and open source simple game that looks like Flappy Bird written in HTML5 
 # Resource Credits
 
 #### Sprite by
-| [Bevouliin](http://bevouliin.com/) |
-|:----------------------------------:|
-| Chicken design                     |
+|  [Bevouliin](http://bevouliin.com/)   |
+|:-------------------------------------:|
+| Chicken design                        |
+| **[pzUH](http://www.gameart2d.com/)** |
+| Desert tileset                        |
 
 #### Music by
 | [TeknoAXE](http://teknoaxe.com/Home.php)      |
