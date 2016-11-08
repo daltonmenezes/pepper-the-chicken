@@ -2,10 +2,13 @@ function drawScore() {
   context.fillStyle = "#242424";
   context.font = "50px Arial";
 
-  if (currentState == states.playing)
+  if (currentState == states.playing) {
       context.fillText(chicken.score, 15, 48);
+  }
 
   if (currentState == states.lost) {
+      facebook.style.display = "block";
+
       context.fillStyle = "#e74c3c";
       context.fillRect(Math.floor(WIDTH / 2 - 50), Math.floor(HEIGHT / 2 - 80), 100, 100);
       context.save();
