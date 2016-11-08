@@ -9,3 +9,29 @@ canvas {
   border-radius: 10px;
   cursor: pointer;
 }
+
+button {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  cursor: pointer;
+}
+
+#facebook {
+  display: none;
+  top: 150px;
+  width: 200px;
+  height: 80px;
+  font-size: 1.3em;
+  color: white;
+  background-color: #3c5698;
+  border: none;
+  z-index: 10000;
+}
+
+#facebook:hover {
+  background-color: #31467c;
+}
