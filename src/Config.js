@@ -6,3 +6,8 @@ states = {
   playing: 1,
   lost: 2
 }
+
+if (WIDTH >= 600) {
+    WIDTH = 600;
+    HEIGHT = 550;
+}
