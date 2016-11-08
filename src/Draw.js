@@ -1,4 +1,6 @@
 function draw() {
+  facebook = document.getElementById('facebook');
+  
   collider[0].draw(context, 0, 0);
   collider[1].draw(context, 0, 0);
   collider[2].draw(context, 0, 0);
@@ -17,6 +19,7 @@ function draw() {
   background.draw();
 
   if (currentState == states.start) {
+      facebook.style.display = "none";
       speed = initial_speed;
       menu_sprite.draw(backgroundContext, 0, 0);
   }
