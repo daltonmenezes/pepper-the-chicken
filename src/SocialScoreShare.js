@@ -4,7 +4,7 @@ function socialScoreShare() {
 
   caption = 'Pepper - The Chicken';
   title = chicken.score+' points!!!';
-  description = 'I just scored '+chicken.score+' points on Pepper - The Chicken. Can you beat it? #pepperthechicken';
+  description = 'I just scored '+chicken.score+' points on Pepper - The Chicken. Can you beat it? #pepperthechickengame';
 
-  window = window.open ('https://www.facebook.com/dialog/share?app_id=998325273610775&href=https://daltonmenezes.github.io/pepper-the-chicken/&picture=https://daltonmenezes.github.io/pepper-the-chicken/src/sprites/pepper-fb.png&title='+title+'&caption='+caption+'&description='+description, '_blank', 'width=250, height=250, top='+ top +', left='+ left);
+  window = window.open ('https://www.facebook.com/dialog/share?app_id=998325273610775&href=https://daltonmenezes.github.io/pepper-the-chicken/&picture=https://daltonmenezes.github.io/pepper-the-chicken/src/sprites/pepper-fb.png&title='+title+'&caption='+caption+'&description='+description+'&hashtag=#pepperthechickengame', '_blank', 'width=250, height=250, top='+ top +', left='+ left);
 }
