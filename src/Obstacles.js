@@ -2,6 +2,7 @@ let obstacles = {
     _obs: [],
     widths: [108, 70, 86, 124, 131, 145],
     heights: [111, 45, 96, 73, 74, 88],
+    timeToInsert: 0,
 
     insert: function () {
         this._obs.push({
